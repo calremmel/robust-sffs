@@ -1,0 +1,47 @@
+------------------------- Prologue ----------------------------
+         Started: Wed Dec 18 17:42:50 EST 2019
+          Job ID: 1346969.pearl.hpcc.dartmouth.edu
+         User ID: f002z9p
+        Group ID: rc-users
+        Job Name: cmv_transmission
+ Resources Req'd: nodes=1:ppn=1,walltime=04:00:00,neednodes=1:ppn=1
+      Queue Name: default
+    Account Name: 
+------------------------- Prologue ----------------------------
+
+Searching for features...
+Fold #1
+Fold #2
+Fold #3
+Fold #4
+Fold #5
+Fold #6
+Fold #7
+Fold #8
+Fold #9
+Fold #10
+Fold #11
+Fold #12
+Fold #13
+Fold #14
+Fold #15
+Fold #16
+Fold #17
+Fold #18
+Fold #19
+Fold #20
+You must specify a command! Options: ["select", "permtest", "evaluate"]
+
+------------------------- Epilogue ----------------------------
+        Finished: Wed Dec 18 19:24:33 EST 2019
+          Job ID: 1346969.pearl.hpcc.dartmouth.edu
+         User ID: f002z9p
+        Group ID: rc-users
+        Job Name: cmv_transmission
+      Session ID: 25134
+ Resources Req'd: nodes=1:ppn=1,walltime=04:00:00,neednodes=1:ppn=1
+  Resources Used: cput=01:41:18,vmem=971052kb,walltime=01:41:44,mem=113864kb,energy_used=0
+      Queue Name: default
+    Account Name: 
+------------------------- Epilogue ----------------------------
+

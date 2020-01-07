@@ -1,0 +1,74 @@
+---
+
+#########
+# NOTES #
+#########
+
+# This config file runs a feature search pipeline
+# using Sequential Forward Floating Selection
+# on the P186 2A3A dataset.
+
+##########
+# CONFIG #
+##########
+
+RUN_NAME: p186_2A3A
+# For today's date: auto
+# To load or update a previous run: YYYYMMDD
+RUN_DATE: auto
+
+##############
+# FILE PATHS #
+##############
+
+MAIN: ../data/20190904_p186_2A3A.csv
+# If no test set: False
+TEST: False
+
+#################
+# DATA SETTINGS #
+#################
+
+TARGET: Group
+TEST: False
+META_COLS:
+  - Subject
+
+CLASSES:
+  - 1
+  - 2
+
+#####################
+# PIPELINE SETTINGS #
+#####################
+
+# Estimator Codes
+# LR: Logistic Regression
+# RF: Random Forest
+ESTIMATOR:
+  CODE: LR
+
+MAX_K: 10
+
+# Final number of features, chosen after initial feature selection
+# Additionally sets maximum featureset size for permutation test
+K_FEATURES: 'parsimonious'
+
+CV:
+  FOLDS: 5
+  REPEATS: 20
+
+LOGSCALE:
+  USE: Y
+
+CORRELATION_FILTER:
+  USE: N
+  THRESHHOLD: .90
+  
+MUTUAL_INFO:
+  USE: N
+  NO_FEATURES: 10
+
+NORMALIZE:
+  USE: Y
+...

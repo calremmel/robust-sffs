@@ -1,0 +1,74 @@
+---
+
+#########
+# NOTES #
+#########
+
+# This config file runs a feature search pipeline
+# using Sequential Forward Floating Selection
+# on the P186 3A Only dataset.
+
+##########
+# CONFIG #
+##########
+
+RUN_NAME: cmv_primlat
+# For today's date: auto
+# To load or update a previous run: YYYYMMDD
+RUN_DATE: auto
+
+##############
+# FILE PATHS #
+##############
+
+MAIN: ../data/2019-10-29-cmv-main-filtered-nojason.csv
+# If no test set: False
+TEST: False
+
+#################
+# DATA SETTINGS #
+#################
+
+TARGET: Cohort
+TEST: False
+META_COLS:
+  - Sample
+
+CLASSES:
+  - Latent
+  - Primary
+
+#####################
+# PIPELINE SETTINGS #
+#####################
+
+# Estimator Codes
+# LR: Logistic Regression
+# RF: Random Forest
+ESTIMATOR:
+  CODE: RF
+
+MAX_K: 10
+
+# Final number of features, chosen after initial feature selection
+# Additionally sets maximum featureset size for permutation test
+K_FEATURES: 'parsimonious'
+
+CV:
+  FOLDS: 5
+  REPEATS: 4
+
+LOGSCALE:
+  USE: Y
+
+CORRELATION_FILTER:
+  USE: N
+  THRESHHOLD: .90
+  
+MUTUAL_INFO:
+  USE: N
+  NO_FEATURES: 10
+
+NORMALIZE:
+  USE: Y
+...

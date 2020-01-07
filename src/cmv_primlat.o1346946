@@ -1,0 +1,46 @@
+------------------------- Prologue ----------------------------
+         Started: Wed Dec 18 15:32:11 EST 2019
+          Job ID: 1346946.pearl.hpcc.dartmouth.edu
+         User ID: f002z9p
+        Group ID: rc-users
+        Job Name: cmv_primlat
+ Resources Req'd: nodes=1:ppn=1,walltime=04:00:00,neednodes=1:ppn=1
+      Queue Name: default
+    Account Name: 
+------------------------- Prologue ----------------------------
+
+Searching for features...
+Fold #1
+Fold #2
+Fold #3
+Fold #4
+Fold #5
+Fold #6
+Fold #7
+Fold #8
+Fold #9
+Fold #10
+Fold #11
+Fold #12
+Fold #13
+Fold #14
+Fold #15
+Fold #16
+Fold #17
+Fold #18
+Fold #19
+Fold #20
+
+------------------------- Epilogue ----------------------------
+        Finished: Wed Dec 18 17:11:11 EST 2019
+          Job ID: 1346946.pearl.hpcc.dartmouth.edu
+         User ID: f002z9p
+        Group ID: rc-users
+        Job Name: cmv_primlat
+      Session ID: 60858
+ Resources Req'd: nodes=1:ppn=1,walltime=04:00:00,neednodes=1:ppn=1
+  Resources Used: cput=01:38:15,vmem=972008kb,walltime=01:39:02,mem=114876kb,energy_used=0
+      Queue Name: default
+    Account Name: 
+------------------------- Epilogue ----------------------------
+

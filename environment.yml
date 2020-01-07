@@ -1,0 +1,16 @@
+name: dabl
+channels:
+  - defaults
+dependencies:
+  - python=3.7
+  - scikit-learn
+  - pandas
+  - matplotlib=3.1.0
+  - seaborn
+  - pyyaml
+  - click
+  - ipython
+  - pip:
+    - imbalanced-learn
+    - mlxtend
+

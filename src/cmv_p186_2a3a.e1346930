@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "interface.py", line 45, in <module>
+    interface()
+  File "/dartfs-hpc/rc/home/p/f002z9p/.conda/envs/remmel/lib/python3.7/site-packages/click/core.py", line 764, in __call__
+    return self.main(*args, **kwargs)
+  File "/dartfs-hpc/rc/home/p/f002z9p/.conda/envs/remmel/lib/python3.7/site-packages/click/core.py", line 717, in main
+    rv = self.invoke(ctx)
+  File "/dartfs-hpc/rc/home/p/f002z9p/.conda/envs/remmel/lib/python3.7/site-packages/click/core.py", line 956, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/dartfs-hpc/rc/home/p/f002z9p/.conda/envs/remmel/lib/python3.7/site-packages/click/core.py", line 555, in invoke
+    return callback(*args, **kwargs)
+  File "interface.py", line 34, in interface
+    pipe = joblib.load('test3.joblib')
+  File "/dartfs-hpc/rc/home/p/f002z9p/.conda/envs/remmel/lib/python3.7/site-packages/joblib/numpy_pickle.py", line 590, in load
+    with open(filename, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'test3.joblib'

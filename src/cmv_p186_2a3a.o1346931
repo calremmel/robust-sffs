@@ -1,0 +1,25 @@
+------------------------- Prologue ----------------------------
+         Started: Wed Dec 18 13:55:06 EST 2019
+          Job ID: 1346931.pearl.hpcc.dartmouth.edu
+         User ID: f002z9p
+        Group ID: rc-users
+        Job Name: cmv_p186_2a3a
+ Resources Req'd: nodes=1:ppn=1,walltime=04:00:00,neednodes=1:ppn=1
+      Queue Name: default
+    Account Name: 
+------------------------- Prologue ----------------------------
+
+
+------------------------- Epilogue ----------------------------
+        Finished: Wed Dec 18 13:55:14 EST 2019
+          Job ID: 1346931.pearl.hpcc.dartmouth.edu
+         User ID: f002z9p
+        Group ID: rc-users
+        Job Name: cmv_p186_2a3a
+      Session ID: 8098
+ Resources Req'd: nodes=1:ppn=1,walltime=04:00:00,neednodes=1:ppn=1
+  Resources Used: cput=00:00:01,vmem=4kb,walltime=00:00:09,mem=396kb,energy_used=0
+      Queue Name: default
+    Account Name: 
+------------------------- Epilogue ----------------------------
+

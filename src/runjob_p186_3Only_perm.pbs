@@ -1,0 +1,12 @@
+#!/bin/bash -l
+#PBS -N cmv_p186_3Only
+#PBS -q default
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=04:00:00
+#PBS -m bea
+#PBS -M christopher.remmel@dartmouth.edu
+cd $PBS_O_WORKDIR
+source /optnfs/common/miniconda3/etc/profile.d/conda.sh
+conda activate remmel
+python interface.py --command=permtest --config=config_3Only.yml --clf=LR
+exit 0
