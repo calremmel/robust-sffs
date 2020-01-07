@@ -66,14 +66,9 @@ class robust_sffs(object):
         that contain metadata better used for grouping than for modeling.
         
         Args:
-            DATA (str): Path to .csv file containing data.
+            filename (str): Path to .csv file containing data.
             meta_cols (bool, optional): True if there are metadata columns to remove. Defaults to False.
             meta_return (bool, optional): True to return the metadata columns as a separate DataFrame. Defaults to False.
-        
-        Returns:
-            X (DataFrame): DataFrame of features.
-            y (DataFrame): DataFrame of labels.
-            meta (DataFrame, optional): DataFrame of metadata.
         """
         X = pd.read_csv(filename)
         X = X.dropna(axis=1)
@@ -93,6 +88,14 @@ class robust_sffs(object):
             self.meta = meta
 
     def get_steps(self, type):
+        """Loads pipeline steps from configuration settings.
+        
+        Args:
+            type (str): Type of pipeline to construct ("selector" or "classifier").
+        
+        Returns:
+            processed_steps (list): List of pipeline steps.
+        """        
         if type == "selector":
             steps = [
                 ("correlation_filter", CorrelationThreshhold()),
@@ -116,14 +119,7 @@ class robust_sffs(object):
         return processed_steps
 
     def build_selector(self):
-        """Creates a feature selection pipeline.
-        
-        Args:
-            k (int, optional): Maximum size of featureset. Defaults to 10.
-        
-        Returns:
-            (sklearn Pipeline): Feature selection pipeline.
-        """
+        "Creates a feature selection pipeline."
         # Instantiate sequential forward floating selection object
         self.max_features = self.config["MAX_K"]
         sffs = SFS(
@@ -147,11 +143,7 @@ class robust_sffs(object):
         self.selector = selector
 
     def build_classifier(self):
-        """Creates a classification pipeline, using settings from the feature selection pipeline.
-        
-        Returns:
-            (sklearn Pipeline): Classification pipeline.
-        """
+        "Creates a classification pipeline, using settings from the feature selection pipeline."
         # Instantiate pipeline steps
         steps = self.get_steps("classifier")
         steps += [("clf", self.clf)]
@@ -162,11 +154,7 @@ class robust_sffs(object):
         self.classifier = classifier
 
     def build_transformer(self):
-        """Creates a data preprocessing pipeline.
-        
-        Returns:
-            (sklearn Pipeline): Preprocessing pipeline.
-        """
+        "Creates a data preprocessing pipeline."
         # Instantiate pipeline steps
         steps = [
             ("logscale", FunctionTransformer(np.log1p, validate=True)),
@@ -179,8 +167,7 @@ class robust_sffs(object):
         self.transformer = transformer
 
     def get_parsimonious_k(self):
-        """[summary]
-        """
+        "Finds the smallest number of features such that the accuracy is no lower than 1 sdev lower than the maximum accuracy."
         metric_data = self.eval_byfold(self.selector_dict)
         is_true_and_test = (metric_data["run"] == "True") & (
             metric_data["fold"] == "Test"
@@ -197,7 +184,7 @@ class robust_sffs(object):
         self.best_k = fsize_parsimonious
 
     def select_features_cv(self):
-        """Runs a feature selection pipeline, saving the results to a *.joblib file."""
+        "Runs a feature selection pipeline."
         self.cv = list(
             RepeatedStratifiedKFold(
                 n_splits=self.config["CV"]["FOLDS"],
@@ -249,17 +236,11 @@ class robust_sffs(object):
         self.get_parsimonious_k()
 
     def permutation_test_cv(self, n_shuffles=10, k=2):
-        """[summary]
+        """Runs feature selection pipeline with permuted labels multiple times.
         
         Args:
-            n_shuffles (int, optional): [description]. Defaults to 10.
-            k (int, optional): [description]. Defaults to 2.
-        
-        Returns:
-            [type]: [description]
-        
-        Yields:
-            [type]: [description]
+            n_shuffles (int, optional): Number of times to shuffle labels. Defaults to 10.
+            k (int, optional): Maximum featureset size for permutation runs. Defaults to 2.
         """
         permutation_dict = {x: {} for x in range(1, n_shuffles + 1)}
         print("Running permutation test...")
