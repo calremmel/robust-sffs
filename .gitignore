@@ -130,3 +130,5 @@ dmypy.json
 
 # Additional
 *.joblib
+/data
+/output
